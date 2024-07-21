@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Code {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Hi i am ChatBot ! Whats your name");
+        String name = sc.nextLine();
+        System.out.println("Nice to meet you "+name);
+        boolean chat = true;
+        while(chat){
+            String result = sc.nextLine().toLowerCase();
+            if(result.contains("hi") || result.contains("hello")){
+                System.out.println("Hi there "+ name +" How can i help you");
+            }
+            else if (result.contains("say your name")){
+                System.out.println("You can call me ChatBot , thanks for asking");
+            }
+            else if(result.contains("nice to meet you")){
+                System.out.println("Happy to know that "+ name);
+            }
+            else if(result.contains("bye") || result.contains("goodbye")){
+                System.out.println("Hope to meet you soon ! BYE "+name);
+                chat = false;
+            }
+            else{
+                System.out.println("Sorry i did not understand");
+            }
+        }
+        sc.close();
+
+    }
+}
