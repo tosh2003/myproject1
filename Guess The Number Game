@@ -1,0 +1,40 @@
+import java.util.Random;
+import java.util.Scanner;
+class Game{
+int value;
+int guess = 0;
+    Scanner sc = new Scanner(System.in);
+    public Game(){
+        Random r = new Random();
+        value = r.nextInt(5);
+    }
+    public void StartGame() {
+        boolean message = true;
+            while(message){
+                System.out.println("Enter your number");
+                int input = sc.nextInt();
+                if(input < 0 || input > 5){
+                    System.out.println("invalid values enter value between 0 to 5");
+                }
+                else if(input == value){
+                    System.out.println("guess is right");
+                    message = false;
+                } else if (input < value) {
+                    System.out.println("Enter a number a bit higher");
+                    guess++;
+                }
+                else if(input > value){
+                    System.out.println("Enter a number bit lower ");
+                    guess++;
+                }
+            }
+        System.out.println(guess);
+    }
+}
+
+public class GuessTheNumberGame {
+    public static void main(String[] args) {
+        Game obj = new Game();
+        obj.StartGame();
+    }
+}
