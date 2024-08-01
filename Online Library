@@ -1,0 +1,60 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class OnlineLibrary {
+    String [] arr = new String[]{"Java Book", "SQL Book", "HTML Book", "Python Book"};
+    public void availableBooks() {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Available Books are : " + arr[i]);
+        }
+    }
+
+        public void addBook () {
+            String[] arr1 = new String[]{"JavaScript Book", "C++ Book"};
+            String[] newArr = new String[arr.length + arr1.length];
+            for (int i = 0; i < arr.length; i++) {
+                newArr[i] = arr[i];
+            }
+            for (int i = 0; i < arr1.length; i++) {
+                newArr[arr.length + i] = arr1[i];
+            }
+            arr = newArr;
+            System.out.println();
+            System.out.println("Additional new launch books are "+ Arrays.toString(arr));
+
+
+        }
+        public boolean contains(String input) {
+            for (String b : arr) {
+                if (b.equals(input)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        int count = 0;
+        Scanner sc = new Scanner(System.in);
+        public void issueBook(){
+        boolean value = true;
+        while(value){
+            System.out.println("Enter the books which u want without ignoring cases and for exiting press 'x': ");
+            String books = sc.nextLine();
+            if(contains(books)){
+                System.out.println("Issued books are : "+books);
+                count++;
+            }else if(books.equals("x")){
+                value = false;
+            }
+        }
+            System.out.println("you took " + count + " books");
+        }
+
+
+    public static void main(String[] args) {
+            OnlineLibrary obj = new OnlineLibrary();
+            obj.availableBooks();
+            obj.addBook();
+            obj.issueBook();
+
+    }
+}
